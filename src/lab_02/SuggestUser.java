@@ -11,15 +11,15 @@ public class SuggestUser {
         double height = scanner.nextDouble();
         double bmi = weight / (height * height);
         double weightGain = ((18.5 * weight) / bmi) - weight;
-        double weightLoss = ((24.9 * weight) / bmi) - weight;
+        double weightLoss = Math.abs(((24.9 * weight) / bmi) - weight);
         if (bmi < 18.5) {
             System.out.printf("Result is Underweight (BMI = %f)\nYou should gain %f kg", bmi, weightGain);
         } else if (bmi < 24.9) {
             System.out.printf("Result is Normal weight (BMI = %f)", bmi);
         } else if (bmi < 29.9) {
-            System.out.printf("Result is Overweight (BMI = %f)\nYou should gain %f kg", bmi, weightLoss);
+            System.out.printf("Result is Overweight (BMI = %f)\nYou should loss %f kg", bmi, weightLoss);
         } else {
-            System.out.printf("Result is Obesity (BMI = %f)\nYou should gain %f kg", bmi, weightLoss);
+            System.out.printf("Result is Obesity (BMI = %f)\nYou should loss %f kg", bmi, weightLoss);
         }
     }
 }
